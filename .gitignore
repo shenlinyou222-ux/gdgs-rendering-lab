@@ -1,0 +1,112 @@
+# ============================================================================
+# gdgs-rendering-lab —— 刻意排除清单
+#
+# 原则：**只收代码、数据表、证据与精选截图**。
+# 所有被排除的东西都满足下面至少一条：
+#   (a) 可再生的导入缓存 / 构建产物；
+#   (b) 单文件极大（GitHub 单文件 100MB 硬上限、50MB 警告线）或体积远超
+#       一个作品集仓库的合理体积；
+#   (c) 第三方素材（第三方许可证、或源自第三方包），不适合在本仓库重新分发；
+#   (d) 一次性调试产物（几百个迭代日志 / .bak 快照），不构成证据。
+#
+# 被排除但**可重建**的东西，重建命令写在本文件末尾。
+# ============================================================================
+
+# ---------------------------------------------------------------- (a) 可再生
+# Godot 的 .ply / .obj / .png 导入缓存。原工程里是 6,373.7 MB / 1176 文件，
+# 是全部体积的一半以上，而且删掉后 Godot 打开工程会自己重建。
+.godot/
+# 引擎二进制 / 编辑器用户目录（导出模板、Vulkan 管线缓存、编辑器设置）。
+Godot/
+export_presets.cfg
+*.translation
+
+# ------------------------------------------------- (c) 第三方素材 / 大二进制
+# 这三套是第三方模型源件，单目录数百 MB，且是"原料"不是"成果"：
+#   assets/models_src/           614.5 MB  下载来的 OBJ 源模型（哈希目录名）
+#   assets/goldfish_src/         378.6 MB  金鱼源包，含 248MB 贴图 + 63.9MB RealESRGAN 权重
+#   assets/props_mesh/           489.9 MB  中转站/雷达塔的 OBJ（单个 76–102MB）
+#   asset_backups_20260910/       58.2 MB  素材替换前的备份
+assets/models_src/
+assets/goldfish_src/
+assets/props_mesh/
+asset_backups_20260910/
+# 训练/放大权重属于工具链输入，不是本项目产出。
+*.pth
+*.ckpt
+*.safetensors
+
+# 大体积媒体与烘焙产物。全部可由 tools/ 下的脚本重建（见文件末尾），
+# 且合计 ~380 MB，放进来会直接顶爆 GitHub 的单文件限制。
+# 注意用 assets/textures/* 而不是 assets/textures/：git 无法在被整体排除的
+# 目录内部再"反排除"单个文件，必须让父目录本身保持可遍历。
+assets/textures/*
+!assets/textures/ASSETS_LICENSE.md
+!assets/textures/uv_calib.png
+!assets/textures/uv_calib.png.import
+!assets/textures/uv_grad.png
+!assets/textures/uv_grad.png.import
+assets/splat_planets/     # tools/bake_planet_splat.py 产出（earth/jupiter L0+L1 PLY 及 lighting.res）
+assets/props/             # tools/bake_any_obj.py · bake_portal_swirl.py 产出（station/radar/octa PLY）
+assets/whale/             # tools/bake_whale.py 产出（whale_humpback.ply，当前 whale.gd 并未使用）
+assets/goldfish/          # tools/bake_goldfish_obj.py 产出（goldfish_obj_3dgs.ply）
+assets/sfx/               # tools/sfx_gen.py + _gen_sfx.py 产出（whale_song.wav 单文件 6.3MB）
+assets/music/             # NotaGen 生成的 BGM，4 个 wav 共 63.6MB
+assets/eva/*.wav          # TTS 台词音频（21 条，manifest.json 见下）
+!assets/eva/manifest.json  # 台词表本身是文本证据，保留
+
+# 兜底：任何一个超过 50MB 的文件都不进仓库（GitHub 会在 50MB 处告警、100MB 处拒绝）。
+# 上面的逐目录排除已经覆盖了已知的大文件，这条是防止将来误加。
+# 注：git 的 pathspec 不支持按大小过滤，用下面的 .gitattributes 或 pre-commit
+# 检查实现；此处保留为文档性约定。
+
+# ------------------------------------------------------- (d) 一次性调试产物
+# 几百个迭代日志、崩溃日志、备份快照。真正有证据价值的 5 个已被改名收进 logs/。
+*.log
+*.err
+*.bak
+*.bak2
+*.bak3
+*.bak_*
+*.v13bak
+*.orig
+*.out
+__pycache__/
+*.pyc
+tmp/
+downloads/
+NVIDIA Corporation/
+
+# 明确的例外：logs/ 里那 5 份精选证据必须入库（上面的 *.log / *.err 会拦掉它们）。
+!logs/*.log
+
+# ------------------------------------------------------------------ OS / IDE
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# ============================================================================
+# 重建被排除的资产（在 Godot 4.7.2 + Python 3.12 环境下；路径按你的实际环境改）
+#
+#   行星高斯（earth/jupiter 的 L0/L1 PLY + relight 法线资源）
+#     python tools/bake_planet_splat.py --tex assets/textures/planets/earth.jpg \
+#            --radius 100 --name earth --counts 400000,40000 --out-dir assets/splat_planets
+#     Godot_v4.7.2-stable_win64_console.exe --headless --path . res://lighting_gen.tscn
+#   道具 PLY（中转站 / 雷达 / BOSS 八棱柱）
+#     python tools/bake_any_obj.py ...        # 见脚本内 --help
+#     python tools/bake_portal_swirl.py
+#   战机高斯外观（P1/P2/P3_splats.ply）—— 这三份**已入库**，因为它们是
+#     "低模=碰撞 / 高斯=外观" 这一核心设计的直接证据，且总共只有 0.8MB
+#   程序化特效高斯（assets/fx/*.ply）
+#     python tools/gen_fx_splats.py
+#   星鲸 / 金鱼
+#     python tools/bake_goldfish_obj.py
+#   音效与 BGM
+#     python tools/sfx_gen.py ; python _gen_sfx.py ; python _gen_whale_song_v2.py
+#   第三方示例资产 demo.compressed.ply（27.1 万点盆景）
+#     https://github.com/ReconWorldLab/godot-gaussian-splatting  Releases → sample-assets
+#   贴图（NASA 公版 + Solar System Scope CC BY 4.0，逐项署名见
+#     assets/textures/ASSETS_LICENSE.md；本仓库只保留那份署名文件本身）
+# ============================================================================

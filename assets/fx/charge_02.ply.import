@@ -1,0 +1,15 @@
+[remap]
+
+importer="gaussian.splat.importer"
+importer_version=5
+type="Resource"
+uid="uid://bs8e82gdf7pnc"
+path="res://.godot/imported/charge_02.ply-a0c9049e279fd0f296e96fe894db6157.res"
+
+[deps]
+
+source_file="res://assets/fx/charge_02.ply"
+dest_files=["res://.godot/imported/charge_02.ply-a0c9049e279fd0f296e96fe894db6157.res"]
+
+[params]
+

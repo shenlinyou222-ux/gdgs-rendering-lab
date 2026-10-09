@@ -1,0 +1,157 @@
+# ============================================================
+# 太空战斗 Demo · 数值平衡表 v0.3(solar_combat 启动时载入)
+# 参照:Endless Sky 纯文本数据表 / Vega Strike units.csv / Ian Schreiber《Game Balance》
+# 原则:战斗数值集中于此,改表即改手感,无需动代码;启动时打印数值验收报告。
+# 表缺失/键缺失时代码用内置默认值兜底。单位:伤害=点 时间=秒 距离=米 角度=度
+# ============================================================
+
+[player]
+hp = 100               # L1 敌火力≈3 架交战×8 dmg,配合命中概率容错合理
+armor_upgrade = 25     # [2]装甲:HP 上限 +
+speed_base = 40
+speed_boost = 600
+speed_upgrade = 0.15   # [3]引擎:+15%(乘算)
+accel_base = 13        # 常推加速度(m/s²,线性):2s 内到巡航
+accel_boost = 100      # 加力推加速度(m/s²,线性):6s 内到 600
+
+[cannon]               # 持续机炮(hitscan,LMB/SPACE; v0.9.3 退役让位常驻激光)
+enabled = 0            # v0.9.3:1=开 0=关(本机载械 = 常驻激光 + 追踪导弹)
+damage = 12
+fire_interval = 0.10   # 10 发/秒 → 理论 DPS 120
+range = 600
+heat_per_shot = 5.0    # 毛积热 50/s,净积热 50-26=24/s → 连射 ~4.2s 过热
+bloom_per_shot = 0.55  # 连射扩散增速(度/发)
+bloom_max = 3.2        # 最大扩散(度):远距逼你打点射
+bloom_decay = 4.0      # 停火扩散回落(度/秒)
+
+[plasma]               # 间歇等离子(实体弹,火控锥内自动释放; v0.9.2 本机关闭,移交僚机)
+enabled = 0            # v0.9.2:1=开 0=关(本机仅保留 机炮+追踪导弹)
+damage = 70
+fire_interval = 1.1
+projectile_speed = 260
+projectile_speed = 320   # v6.17:260→320 弹速提升(更易命中远目标)
+projectile_life = 6.0    # v6.17:3.5→6.0 —— 有效射程 = 320×6.0 = 1920m(重型远射武器)
+hit_radius = 4.5       # 对敌命中球(敌碰撞盒 6m)
+blast_radius = 14.0     # v6.16:爆炸杀伤半径 —— 命中后 AoE 波及全场敌机
+blast_edge = 0.45       # v6.16:半径边缘伤害比例(中心 100% 线性衰减到此值)
+heat_per_shot = 34     # 3 连发即过热
+core_mult = 1.25       # 对结构核心伤害加成
+
+[heat]
+enabled = 0            # v0.8:过热系统整体关闭 —— 机炮常开无限连射(保留表项便于将来重开)
+max = 100
+dissipate = 26         # 全武器共享排热(过热 100→35 需 2.5s)
+resume_below = 35
+
+[enemy]
+visual_size = 8            # v0.6 敌机可视边长(m):3m 在 260m 交战距离仅 ~6px,拉大到 8m(~15px)
+hp_base = 180             # v0.3.3 调高:全自动火控下敌人要更耐打
+hp_level_scale = 0.2   # HP×(1+0.2(L−1)):L5=180
+damage_base = 4           # v0.3.3 削弱:敌弹可闪避后伤害减半
+damage_per_level = 1
+engage_range = 260
+retreat_hp = 30        # 低于此血量进入规避
+regen = 8              # 规避时回血/秒
+kill_parts = 10
+kill_score = 100
+wave_base = 53          # v0.7:每波敌机总数(以流为单位铺设:ceil(20/22)=1 条流)
+spawn_interval = 4.0    # v0.7:每条机群流的补充间隔(秒)
+max_alive = 172           # v0.7:场上敌机上限(≈2 条流在场)
+wave_per_level = 27     # v0.7:每关 +1 条流(20 机)
+bolt_speed = 130         # 敌弹飞行速度(有飞行时间 → 可闪避)
+warn_time = 1.6          # 来袭预警窗口(秒):HUD 椭圆八方红环
+
+[core]
+hp_base = 18000           # v0.8:核心 HP = 400+160(L-1)+22(L-1)^2 二次曲线,无尽段 ×1.10^N
+hp_per_level = 6000
+
+[economy]
+clear_parts_base = 120
+clear_parts_per_level = 30
+upgrade_cost = 100
+dmg_upgrade = 0.15     # [1]火力:全武器伤害 +15%
+quota_base = 8           # v0.8:开门击毁配额 8+2(L-1)(设计稿 levels_design.md)
+quota_per_level = 2     # v0.8:每关 +2
+survival_time = 300
+
+[crowd]                # v0.7 机群流(crowd)管理:机型×行为×高斯模板复用
+members = 43           # 每流机数(≥20)
+jet_scale = 0.45       # v0.8.2 机体缩放:P1≈4.5m / P2≈5.4m / P3≈6.5m(本体保持 2m 级不动;碰撞盒/高斯同步缩放)
+gauss_cap = 96         # v7.5:全局高斯绘制预算(最近 K 架高斯, 其余低模)
+attack_tokens = 10      # 每流同时允许交战开火的机数上限(其余保持编队整齐飞行)
+splat_range = 900     # 高斯外观可见半径:流内超出者整体切低模剪影(空间复用渲染)
+
+[weapon_spread]        # v0.8 散弹炮(雷霆战机 E 型弹思路): N 弹丸锥形散布,中近距爆发
+damage = 9             # 单弹丸伤害(hitscan)
+pellets = 6            # 弹丸数
+spread = 4.5           # 散布锥角(度)
+fire_interval = 0.9
+range = 420
+unlock_level = 999     # v0.9.2:本机关闭(散弹移交僚机)
+
+[weapon_laser]         # v0.8 超级激光炮: 充能→持续光束循环(参照 Endless Sky beamer 类:持续 tick 伤害)
+dps = 220              # v0.9.3 常驻照射 DPS:L1 敌 HP180÷1.2s(机炮退役后主持续输出)
+beam_time = 9999       # v0.9.3:常驻 —— 起辉后不熄(仅死亡/未解锁隐藏)
+recharge = 0.35        # v0.9.3:起辉棘轮(s),快速预热替代长充能
+range = 3800           # v0.9.3:地月距离缩比(真实 38.44万km → 约3.8km)
+beam_width = 1.5       # v0.9.8:加粗(0.3 太细锁不住);地球半径 100m 的 1.5%
+hit_cone = 1.8          # v0.9.8b:命中角度容差(°) —— 束方向不动准星,扫到即算(0=仅精确射线)
+fx_fade = 800          # v0.9.7:光束可见衰减距离(m) —— 亮度集中准星附近,远段淡出
+core_mult = 1.15       # 对核心倍率(常驻流削峰)
+unlock_level = 1       # v0.9.3:本机主武器(L1 起常驻)
+
+[missile]              # v0.9.2:追踪导弹 —— 本机第二武器(锁定目标自动 / RMB 手动)
+enabled = 1
+unlock_level = 1       # L1 起可用
+damage = 90            # 单发伤害(×dmg_mult) —— v0.9.2:重型武器关闭后导弹为主输出
+speed = 200            # 巡航速度(m/s)
+turn_rate = 2.8        # 转向率(rad/s)
+fire_interval = 1.4    # 发射间隔(s)
+lifetime = 6.0         # 自毁(s)
+hit_radius = 7.0       # 命中球(m,对敌)
+core_mult = 1.2        # 对核心倍率
+smoke = 1              # 尾烟开关(0=关)
+
+[camera]               # v0.7.1 相机
+fov = 45               # 垂直视场角(度):70→45 视角成比例缩小,世界观感放大约 1.55 倍;越小越"望远镜"
+
+[playergun]           # v7.3 弹体炮: 敌机同款实体弹, 自动/手动与机炮同步开火
+damage = 22           # 单发伤害(x dmg_mult)
+fire_interval = 0.18  # 射击间隔(秒) -> ~5.6 发/s
+speed = 520           # 弹速(m/s)
+life = 3.0            # 弹体存活(秒), 有效射程 ~1.5km
+
+[megabeam]
+cooldown = 60
+duration = 2.0
+dps = 4000
+range = 4000
+radius = 14
+far_range = 1500
+far_factor = 0.35
+core_mult = 2.0
+
+[firecontrol]
+auto_cone = 30.0      # 全自动火控跟踪锥(度):前向此锥内自动锁定/自瞄/开火,无需鼠标
+
+[fx]
+muzzle_flash = 0      # 枪口闪光(加色四边形+点光):0=关 1=开;贴脸触发时覆盖大半屏幕,默认关
+
+[wingman]  # 友方偤机: 敌机同款高斯机型+蓝队编队灯; 机体数值与敌机相同, 血量=敌机×2(代码取 enemy.hp_base)
+count = 3
+damage = 18        # 每发伤害(按敌 hp/10 发标定; 严格复刻敌武器威力改 4)
+fire_range = 300   # 对齐敌机交战距离量级
+fire_interval = 0.5
+respawn = 25
+friendly_fire = 0  # 0=关闭友伤(默认); 1=友方弹可伤玩家
+
+[demo]                 # v7.0 三关剧情 Demo 参数
+l1_quota = 160           # L1 歼灭战: 全歼来犯敌机数
+l2_quota = 180          # L2 保卫战: 击毁数(达成后核心现身返航)
+l3_quota = 80           # L3 BOSS战: 先遣队歼灭数(达成后 BOSS 现身)
+l3_support_t = 45.0    # L3: 开战多少秒后轨道炮台周期火力支援上线
+raid_interval = 8.0    # L2: 敌方对雷达阵的空袭间隔(秒)
+raid_base = 40         # L2: 每次空袭基础伤害
+raid_per_enemy = 1.5    # L2: 每架在场敌机附加伤害(在场的敌机越多空袭越猛)
+song_cd_min = 40       # 鲸歌铺垫: 远歌最短间隔(秒)
+song_cd_max = 65       # 鲸歌铺垫: 远歌最长间隔(秒)

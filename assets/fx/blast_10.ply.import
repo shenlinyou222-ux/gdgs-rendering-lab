@@ -1,0 +1,15 @@
+[remap]
+
+importer="gaussian.splat.importer"
+importer_version=5
+type="Resource"
+uid="uid://cipakxjy8346h"
+path="res://.godot/imported/blast_10.ply-c1de3cf95d61609c9b0d3e2dcbc633f5.res"
+
+[deps]
+
+source_file="res://assets/fx/blast_10.ply"
+dest_files=["res://.godot/imported/blast_10.ply-c1de3cf95d61609c9b0d3e2dcbc633f5.res"]
+
+[params]
+

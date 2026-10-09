@@ -1,0 +1,72 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
+[application]
+
+config/name="gdgs_lab"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.7", "Forward Plus")
+
+[audio]
+
+driver/enable_input=true
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdgs/plugin.cfg")
+
+[gdgs]
+
+; M5-D status: the Compute backend is fixed and verified (7 bugs, incl. the 4.7
+; compositor append no-op and the packed uniform member offsets). It is ~2.4x
+; faster on whale (one huge cloud: 3.05ms -> 1.25ms) but ~36% slower on fleet
+; (100 small instances) and uses ~5x VRAM, so Raster stays the shipped default.
+; Set to "Compute" for single-cloud showcase scenes (research/15 report 8.4).
+rendering/backend="Raster"
+opt/sh_dc_force=-1
+opt/ext_precompute=true
+opt/inv_precompute=true
+opt/frag_exp2=true
+opt/srgb_lut=false
+opt/min_pixel_size=0.0
+opt/far_sort_fraction=0.0
+opt/sort_debug=false
+opt/compositor_debug=false
+
+; --- Compute backend optimisation switches (research/16 A/B) -------------------
+; All default to the shipped (pre-optimisation) behaviour; flip them per project.
+; Measured on fleet 100 nodes/225k splat and whale 408k splat, 1280x720:
+;   compute_sort_budget 10->4 : VRAM 139->102MB (fleet) / 464->426MB (whale),
+;                               frame -3.5% (whale), ~0% (fleet)
+;   compute_subpixel_prune    : -3.3% (fleet) / -3.0% (whale)
+;   compute_reuse_sort        : -10.7% (fleet, 0.15 deg/frame camera) / ~0% (whale,
+;                               whose node transform changes every frame)
+;   compute_lean_clear        : within noise
+;   all four together         : -12.8% (fleet) / -12.9% (whale)
+; Pixel impact of every switch is inside the backend's own run-to-run noise
+; (identical runs differ by PSNR 42-46dB / SSIM 0.9985-0.9993 because the pair
+; order comes from a global atomicAdd and 16-bit depth keys tie).
+opt/compute_sort_budget=10
+opt/compute_subpixel_prune=false
+opt/compute_prune_scale=2.0
+opt/compute_reuse_sort=false
+opt/compute_resort_deg=0.5
+opt/compute_resort_pos=0.01
+opt/compute_reuse_animated=false
+opt/compute_lean_clear=false

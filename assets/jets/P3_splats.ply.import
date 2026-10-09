@@ -1,0 +1,15 @@
+[remap]
+
+importer="gaussian.splat.importer"
+importer_version=5
+type="Resource"
+uid="uid://cvsl5ahpgb6xc"
+path="res://.godot/imported/P3_splats.ply-3fc996c0ecb2340bf5337b91ff5c76b0.res"
+
+[deps]
+
+source_file="res://assets/jets/P3_splats.ply"
+dest_files=["res://.godot/imported/P3_splats.ply-3fc996c0ecb2340bf5337b91ff5c76b0.res"]
+
+[params]
+

@@ -1,0 +1,15 @@
+[remap]
+
+importer="gaussian.splat.importer"
+importer_version=5
+type="Resource"
+uid="uid://dv0q52ryqkbu6"
+path="res://.godot/imported/laser_hit_03.ply-9bb6940acd957e4a29a1db062b92ceec.res"
+
+[deps]
+
+source_file="res://assets/fx/laser_hit_03.ply"
+dest_files=["res://.godot/imported/laser_hit_03.ply-9bb6940acd957e4a29a1db062b92ceec.res"]
+
+[params]
+

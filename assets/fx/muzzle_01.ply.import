@@ -1,0 +1,15 @@
+[remap]
+
+importer="gaussian.splat.importer"
+importer_version=5
+type="Resource"
+uid="uid://dyt36ugufveed"
+path="res://.godot/imported/muzzle_01.ply-0e2cbc79c3002f62f2e47daab9fa8266.res"
+
+[deps]
+
+source_file="res://assets/fx/muzzle_01.ply"
+dest_files=["res://.godot/imported/muzzle_01.ply-0e2cbc79c3002f62f2e47daab9fa8266.res"]
+
+[params]
+

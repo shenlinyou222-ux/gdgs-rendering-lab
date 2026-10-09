@@ -1,0 +1,117 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+balance: 载入 102 项(res://data/balance.txt)
+SKY v6.11 live: mosaic=0.50 nasa=0.70 black_point=0.28 knee=0.90 | sun albedo HDR 10/9.2/8.2
+GRID-LOD: mercury.jpg r=38.3m 三级就绪(48/96/192 段)
+GRID-LOD: venus.jpg r=94.9m 三级就绪(48/96/192 段)
+[gdgs] headless environment: rendering backend selection skipped
+SPLAT-PLANET: earth.jpg r=100.0m L1=40k 三级LOD就绪(L0 按需流式)
+GRID-LOD: mars.jpg r=53.2m 三级就绪(48/96/192 段)
+SPLAT-PLANET: res://assets/textures/8k_jupiter.jpg r=1121.0m L1=50k 三级LOD就绪(L0 按需流式)
+GRID-LOD: saturn.jpg r=945.0m 三级就绪(48/96/192 段)
+GRID-LOD: uranus.jpg r=401.0m 三级就绪(48/96/192 段)
+GRID-LOD: neptune.jpg r=388.0m 三级就绪(48/96/192 段)
+EPHEM: 贴图相位自标定完成, 直下点经度残差 0.0°(标定旋转 89.7°)
+EPHEM: earth 日心 0.9925,-0.1651,0.0000 au | GMST 248.887° | 太阳直下点经度 -77.22°(星历真值)
+EPHEM: 游戏内地球直下点 lat 3.74° lon -77.22° —— 与星历经度差 = EARTH_PHASE 标定值
+ARENA: 距地心 2.2万km(真实), 地球角径 16.6°
+solar system built (scale v6.3: r=100.0·Re^1.0, d=42000.0·AU^0.6, 太阳10920.0, 网格行星) 行星高度 y∈[-7715, 1270]m
+[EVA] 轨道设施在线: 防御激光炮台·雷达阵(受保护目标)
+ECLIPSE-SELFTEST: behind=0.000 lit=1.000 -> PASS
+== 数值报告 ==
+机炮 12×0.10s=DPS120 | 等离子 70×1.10s=DPS64(核心×1.25)| 弹速 320m/s
+热量: 机炮净积热 24.0/s → 连射 4.2s 过热 | 等离子 2 发过热 | 过热恢复 2.5s
+L1 敌HP180: 机炮15发/1.5s 等离子3发 | 核心400: 等离子5发 | 配额10 收入250
+L2 敌HP216: 机炮18发/1.8s 等离子4发 | 核心560: 等离子7发 | 配额12 收入300
+L3 敌HP252: 机炮21发/2.1s 等离子4发 | 核心720: 等离子9发 | 配额14 收入350
+L4 敌HP288: 机炮24发/2.4s 等离子5发 | 核心880: 等离子11发 | 配额16 收入400
+L5 敌HP324: 机炮27发/2.7s 等离子5发 | 核心1040: 等离子12发 | 配额18 收入450
+[MUSIC] BGM 就绪: battle/boss/calm/finale(NotaGen AI 古典曲库)
+[EVA] manifest 台词 21 条 (OK)
+[EVA] 第 1 关(歼灭战):击毁 8 架来犯敌机 → 中转站核心现身, 返航进入即通关
+[EVA] EVA 在线。第一关：拦截并歼灭所有来犯敌机。
+combat ready
+[EVA] 僚机 x3 就位, 与敌机交战中(友伤已关闭)
+[SFX] loaded 14/14, pool=10
+[WARMUP] fx=4 pool(e/w)=64/64 warm_nodes=6
+[VOICE] 就绪: 按住 V 说话松开转写(需 Python voice_intent.py --project gdgs_lab)
+CMDSRV ready: 9 interfaces ["set_orbit_lines", "set_time_scale", "toggle_orbit_lines", "notify", "teleport", "dbg_planet", "eva_query", "eva_repeat", "eva_mute"]
+[MUSIC] -> battle
+SPLAT-LOD: res://assets/textures/8k_jupiter.jpg -> L1高斯 (角径 0.4度, d=149024m, 淡入0.55s)
+PLANET-LOD: mercury.jpg -> L2 (角径 0.0°, d=62464m)
+PLANET-LOD: venus.jpg -> L2 (角径 0.3°, d=17859m)
+PLANET-LOD: mars.jpg -> L2 (角径 0.0°, d=66762m)
+PLANET-LOD: saturn.jpg -> L2 (角径 0.4°, d=122672m)
+PLANET-LOD: uranus.jpg -> L2 (角径 0.1°, d=239680m)
+PLANET-LOD: neptune.jpg -> L2 (角径 0.1°, d=281240m)
+AUTOTEST t=0 phase=0 kills=0/8 hp=100 enemies=44 core_d=-1m pos=(41729,49,7231) mf=false vram=0MB(tex 0MB) fps=1 streams=[p2:PINCER×22 p3:RING×22]
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+AUTOTEST t=10 phase=0 kills=6/8 hp=100 enemies=38 core_d=-1m pos=(41775,52,6634) mf=false vram=0MB(tex 0MB) fps=145 streams=[p2:PINCER×16 p3:RING×22]
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 敌机群已歼灭 — 中转站核心已投放,返航进入即可通关!(击毁 8/8)
+[EVA] 敌机群已歼灭。中转站核心已投放，返航进入即可跃迁。
+[EVA] 击落 +100
+[EVA] 虫洞跃迁开始。
+[EVA] 击落 +100
+SPLAT-LOD: earth.jpg -> L0高斯 (角径 8.5度, d=677m, 淡入0.55s)
+SPLAT-L0: earth.jpg 开始流式加载
+[EVA] 击落 +100
+SPLAT-L0: earth.jpg 加载完成(400k)
+[EVA] 击落 +100
+[MUSIC] -> calm
+[EVA] 任务通过!资源结算完成 — 强化或直接跃迁
+[EVA] 第 2 关(保卫战):保卫雷达相阵!击毁 10 架后核心现身返航
+[EVA] 第二关：保卫雷达相阵。敌方将持续空袭。
+AUTOTEST 跃迁第2关 t=16.5
+[MUSIC] -> battle
+[EVA] 击落 +100
+[EVA] 击落 +100
+AUTOTEST t=20 phase=0 kills=2/10 hp=100 enemies=52 core_d=-1m pos=(41831,63,6036) mf=false vram=0MB(tex 0MB) fps=145 streams=[p2:PINCER×9 p3:RING×21 p2:PINCER×22]
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 僚机 x3 就位, 与敌机交战中(友伤已关闭)
+[EVA] 📡 增援中队跳跃抵达战区!
+[EVA] 检测到集群跳跃信号——增援中队抵达战区。
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 防御战达成 — 中转站核心已投放,返航跃迁!(击毁 10/10)
+[EVA] 防御战达成。中转站核心已投放，返航跃迁。
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+AUTOTEST t=30 phase=4 kills=13/10 hp=100 enemies=41 core_d=1679m pos=(41890,76,5440) mf=false vram=0MB(tex 0MB) fps=145 streams=[p2:PINCER×3 p3:RING×21 p2:PINCER×17]
+[EVA] 击落 +100
+[EVA] 虫洞跃迁开始。
+[MUSIC] -> calm
+[EVA] 任务通过!资源结算完成 — 强化或直接跃迁
+[EVA] 第 3 关(BOSS战):歼灭 4 架先遣机 → BOSS 现身;轨道炮台支援蓄能中
+[EVA] 最终战。巨型目标出现，轨道炮台支援充能中。
+AUTOTEST 跃迁第3关 t=31.8
+[MUSIC] -> boss
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] ⚠ BOSS:八棱柱集群护卫核心!
+[EVA] ⚠ BOSS:八棱柱集群护卫核心!轨道炮台支援蓄能中(2s)
+[EVA] 警告：巨型目标正在接近！
+[EVA] 轨道炮台充能完毕——周期火力支援上线。
+[EVA] ⚡ 轨道炮台火力支援上线 — 周期性巨型光束横扫敌阵!
+[MUSIC] -> finale
+WHALE: goldfish 408252 splats, model_ext=0.998, swim_amp=0.055, fin_amp=0.020
+[EVA] 目标已被摧毁。……侦测到超巨型生物信号接近。
+[EVA] 🐋 星鲸现身 — 深空传来跨越千里的鲸歌…
+WHALE-DBG t=0.1 pos=(39558.35, 45406.76, 4032.248) reveal=0.00 visible=true splats=408252
+AUTOTEST t=40 phase=6 kills=4/4 hp=100 enemies=80 core_d=-1m pos=(41949,85,4844) mf=false vram=0MB(tex 0MB) fps=145 streams=[p2:PINCER×3 p3:RING×21 p2:PINCER×12 p3:VEE×22 p3:RING×22]
+[EVA] 全任务完成 — 感谢试玩三关 Demo!
+AUTOTEST PASS t=42.3 (三关demo全流程: L1歼灭→虫洞结算 → L2保卫+援军剧情 → L3 BOSS+周期支援激光 → 星鲸终局+鲸歌+剧情对话) 总击毁=30

@@ -1,0 +1,53 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+balance: 载入 93 项(res://data/balance.txt)
+SKY v6.11 live: mosaic=0.50 nasa=0.70 black_point=0.28 knee=0.90 | sun albedo HDR 10/9.2/8.2
+GRID-LOD: mercury.jpg r=38.3m 三级就绪(48/96/192 段)
+GRID-LOD: venus.jpg r=94.9m 三级就绪(48/96/192 段)
+[gdgs] headless environment: rendering backend selection skipped
+SPLAT-PLANET: earth.jpg r=100.0m L1=40k 三级LOD就绪(L0 按需流式)
+GRID-LOD: mars.jpg r=53.2m 三级就绪(48/96/192 段)
+SPLAT-PLANET: res://assets/textures/8k_jupiter.jpg r=1121.0m L1=50k 三级LOD就绪(L0 按需流式)
+GRID-LOD: saturn.jpg r=945.0m 三级就绪(48/96/192 段)
+GRID-LOD: uranus.jpg r=401.0m 三级就绪(48/96/192 段)
+GRID-LOD: neptune.jpg r=388.0m 三级就绪(48/96/192 段)
+ARENA: 距地心 350m, 地球角径 16.6°(尺度 v6.3:比例渐近真实)
+solar system built (scale v6.3: r=100.0·Re^1.0, d=42000.0·AU^0.6, 太阳10920.0, 网格行星) 行星高度 y∈[0, 5816]m
+ECLIPSE-SELFTEST: behind=0.000 lit=1.000 -> PASS
+== 数值报告 ==
+机炮 12×0.10s=DPS120 | 等离子 70×1.10s=DPS64(核心×1.25)| 弹速 320m/s
+热量: 机炮净积热 24.0/s → 连射 4.2s 过热 | 等离子 2 发过热 | 过热恢复 2.5s
+L1 敌HP180: 机炮15发/1.5s 等离子3发 | 核心400: 等离子5发 | 配额10 收入250
+L2 敌HP216: 机炮18发/1.8s 等离子4发 | 核心560: 等离子7发 | 配额12 收入300
+L3 敌HP252: 机炮21发/2.1s 等离子4发 | 核心720: 等离子9发 | 配额14 收入350
+L4 敌HP288: 机炮24发/2.4s 等离子5发 | 核心880: 等离子11发 | 配额16 收入400
+L5 敌HP324: 机炮27发/2.7s 等离子5发 | 核心1040: 等离子12发 | 配额18 收入450
+[EVA] 第 1 关:击毁 8 架或生存 90 秒 → 核心现身;敌机自核心涌出,摧毁核心过关
+combat ready
+[EVA] 僚机 x3 就位, 与敌机交战中(友伤已关闭)
+[SFX] loaded 8/8, pool=10
+[WARMUP] fx=4 pool(e/w)=64/64 warm_nodes=6
+[VOICE] 就绪: 按住 V 说话松开转写(需 Python voice_intent.py --project gdgs_lab)
+CMDSRV ready: 6 interfaces ["set_orbit_lines", "toggle_orbit_lines", "notify", "eva_query", "eva_repeat", "eva_mute"]
+SPLAT-LOD: res://assets/textures/8k_jupiter.jpg -> L1高斯 (角径 0.5度, d=139730m, 淡入0.55s)
+PLANET-LOD: mercury.jpg -> L2 (角径 0.1°, d=39712m)
+PLANET-LOD: venus.jpg -> L2 (角径 0.1°, d=67708m)
+PLANET-LOD: mars.jpg -> L2 (角径 0.0°, d=77549m)
+PLANET-LOD: saturn.jpg -> L2 (角径 0.3°, d=204296m)
+PLANET-LOD: uranus.jpg -> L2 (角径 0.1°, d=227327m)
+PLANET-LOD: neptune.jpg -> L2 (角径 0.1°, d=357606m)
+AUTOTEST t=0 phase=0 kills=0/8 hp=100 enemies=44 core_d=-1m pos=(22098,48,-35491) mf=false vram=0MB(tex 0MB) fps=1 streams=[p3:RING×22 p3:PINCER×22]
+[EVA] 击落 +100
+AUTOTEST t=10 phase=0 kills=1/8 hp=100 enemies=43 core_d=-1m pos=(22157,56,-36087) mf=false vram=0MB(tex 0MB) fps=127 streams=[p3:RING×21 p3:PINCER×22]
+SPLAT-LOD: earth.jpg -> L0高斯 (角径 8.5度, d=677m, 淡入0.55s)
+SPLAT-L0: earth.jpg 开始流式加载
+SPLAT-L0: earth.jpg 加载完成(400k)
+[EVA] 击落 +100
+AUTOTEST t=20 phase=0 kills=2/8 hp=100 enemies=42 core_d=-1m pos=(22231,68,-36682) mf=false vram=0MB(tex 0MB) fps=131 streams=[p3:RING×20 p3:PINCER×22]
+[EVA] 击落 +100
+[EVA] 击落 +100
+[EVA] 击落 +100
+AUTOTEST t=30 phase=0 kills=5/8 hp=100 enemies=39 core_d=-1m pos=(22317,78,-37275) mf=false vram=0MB(tex 0MB) fps=145 streams=[p3:RING×19 p3:PINCER×20]
+[EVA] 击落 +100
+[EVA] 击落 +100
+AUTOTEST t=40 phase=0 kills=7/8 hp=100 enemies=37 core_d=-1m pos=(22495,93,-37827) mf=false vram=0MB(tex 0MB) fps=145 streams=[p3:RING×17 p3:PINCER×20]

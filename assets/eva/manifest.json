@@ -1,0 +1,111 @@
+{
+ "text_to_wav": {
+  "EVA 在线。第一关：拦截并歼灭所有来犯敌机。": "E_l1_start.wav",
+  "敌机群已歼灭。中转站核心已投放，返航进入即可跃迁。": "E_l1_clear.wav",
+  "虫洞跃迁开始。": "E_wormhole.wav",
+  "第二关：保卫雷达相阵。敌方将持续空袭。": "E_l2_start.wav",
+  "这里是前哨 K-7 空域。敌方主力正扑向雷达相阵。": "E_l2_story1.wav",
+  "守住它。增援已经在路上了。": "E_l2_story2.wav",
+  "检测到集群跳跃信号——增援中队抵达战区。": "E_l2_reinf.wav",
+  "增援中队已进入护航队列。集中火力，保卫雷达阵。": "E_l2_reinf_eva.wav",
+  "警告：雷达阵结构完整度百分之六十。": "E_fac_60.wav",
+  "警告：雷达阵濒临损毁！": "E_fac_30.wav",
+  "防御战达成。中转站核心已投放，返航跃迁。": "E_l2_clear.wav",
+  "最终战。巨型目标出现，轨道炮台支援充能中。": "E_l3_start.wav",
+  "警告：巨型目标正在接近！": "E_boss_warn.wav",
+  "轨道炮台充能完毕——周期火力支援上线。": "E_l3_support.wav",
+  "目标已被摧毁。……侦测到超巨型生物信号接近。": "E_l3_boss_down.wav",
+  "深空巨兽正在苏醒。": "E_whale_seen.wav",
+  "这段歌声……不在任何已知物种的声纹库中。": "E_whale_line1.wav",
+  "是它们在哀悼死去的同类。": "E_finale_answer.wav",
+  "全任务完成。向您致敬，指挥官。": "E_demo_complete.wav",
+  "任务失败。按 R 重新部署。": "E_fail.wav",
+  "EVA 在线。说 EVA 查询当前任务 试试。": "E_ack.wav"
+ },
+ "by_key": {
+  "l1_start": {
+   "text": "EVA 在线。第一关：拦截并歼灭所有来犯敌机。",
+   "wav": "E_l1_start.wav"
+  },
+  "l1_clear": {
+   "text": "敌机群已歼灭。中转站核心已投放，返航进入即可跃迁。",
+   "wav": "E_l1_clear.wav"
+  },
+  "wormhole": {
+   "text": "虫洞跃迁开始。",
+   "wav": "E_wormhole.wav"
+  },
+  "l2_start": {
+   "text": "第二关：保卫雷达相阵。敌方将持续空袭。",
+   "wav": "E_l2_start.wav"
+  },
+  "l2_story1": {
+   "text": "这里是前哨 K-7 空域。敌方主力正扑向雷达相阵。",
+   "wav": "E_l2_story1.wav"
+  },
+  "l2_story2": {
+   "text": "守住它。增援已经在路上了。",
+   "wav": "E_l2_story2.wav"
+  },
+  "l2_reinf": {
+   "text": "检测到集群跳跃信号——增援中队抵达战区。",
+   "wav": "E_l2_reinf.wav"
+  },
+  "l2_reinf_eva": {
+   "text": "增援中队已进入护航队列。集中火力，保卫雷达阵。",
+   "wav": "E_l2_reinf_eva.wav"
+  },
+  "fac_60": {
+   "text": "警告：雷达阵结构完整度百分之六十。",
+   "wav": "E_fac_60.wav"
+  },
+  "fac_30": {
+   "text": "警告：雷达阵濒临损毁！",
+   "wav": "E_fac_30.wav"
+  },
+  "l2_clear": {
+   "text": "防御战达成。中转站核心已投放，返航跃迁。",
+   "wav": "E_l2_clear.wav"
+  },
+  "l3_start": {
+   "text": "最终战。巨型目标出现，轨道炮台支援充能中。",
+   "wav": "E_l3_start.wav"
+  },
+  "boss_warn": {
+   "text": "警告：巨型目标正在接近！",
+   "wav": "E_boss_warn.wav"
+  },
+  "l3_support": {
+   "text": "轨道炮台充能完毕——周期火力支援上线。",
+   "wav": "E_l3_support.wav"
+  },
+  "l3_boss_down": {
+   "text": "目标已被摧毁。……侦测到超巨型生物信号接近。",
+   "wav": "E_l3_boss_down.wav"
+  },
+  "whale_seen": {
+   "text": "深空巨兽正在苏醒。",
+   "wav": "E_whale_seen.wav"
+  },
+  "whale_line1": {
+   "text": "这段歌声……不在任何已知物种的声纹库中。",
+   "wav": "E_whale_line1.wav"
+  },
+  "finale_answer": {
+   "text": "是它们在哀悼死去的同类。",
+   "wav": "E_finale_answer.wav"
+  },
+  "demo_complete": {
+   "text": "全任务完成。向您致敬，指挥官。",
+   "wav": "E_demo_complete.wav"
+  },
+  "fail": {
+   "text": "任务失败。按 R 重新部署。",
+   "wav": "E_fail.wav"
+  },
+  "ack": {
+   "text": "EVA 在线。说 EVA 查询当前任务 试试。",
+   "wav": "E_ack.wav"
+  }
+ }
+}

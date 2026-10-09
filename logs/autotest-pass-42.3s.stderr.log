@@ -1,0 +1,80 @@
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)
+ERROR: Node not inside tree. Use look_at_from_position() instead.
+   at: look_at (scene/3d/node_3d.cpp:1253)
+   GDScript backtrace (most recent call first):
+       [0] setup (res://solar_props.gd:191)
+       [1] _ready (res://solar_combat.gd:300)

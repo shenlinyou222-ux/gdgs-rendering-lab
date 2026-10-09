@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://byjd8hfl3m63h"
+path="res://.godot/imported/P3_lowpoly.obj-7ab37fff2a4f39b32357d83698b23152.mesh"
+
+[deps]
+
+files=["res://.godot/imported/P3_lowpoly.obj-7ab37fff2a4f39b32357d83698b23152.mesh"]
+
+source_file="res://assets/jets/P3_lowpoly.obj"
+dest_files=["res://.godot/imported/P3_lowpoly.obj-7ab37fff2a4f39b32357d83698b23152.mesh", "res://.godot/imported/P3_lowpoly.obj-7ab37fff2a4f39b32357d83698b23152.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
