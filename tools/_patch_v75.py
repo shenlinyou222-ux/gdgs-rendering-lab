@@ -2,7 +2,10 @@
 # v7.5: GPU LOD 预算 —— 全局最近 K 架高斯, 其余低模剪影; splat_range 收敛
 import io
 
-BASE = r"C:\Users\user\Desktop\ds harness\experiment\gdgs_lab"
+import os
+
+# 仓库根目录（本脚本位于 tools/ 下，故取其上一级）
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COMBAT = BASE + "/solar_combat.gd"
 CROWD = BASE + "/crowd.gd"
 BAL = BASE + "/data/balance.txt"

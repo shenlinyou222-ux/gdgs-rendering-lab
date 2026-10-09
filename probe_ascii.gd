@@ -1,6 +1,11 @@
 extends SceneTree
 func _init() -> void:
-	var dir := "C:/Users/user/Desktop/ds harness/experiment/gdgs_lab/probe_png/"
+	# 探针 PNG 目录：优先取环境变量 PROBE_PNG_DIR，否则用项目内的 res://probe_png/
+	var dir := OS.get_environment("PROBE_PNG_DIR")
+	if dir == "":
+		dir = "res://probe_png/"
+	if not dir.ends_with("/"):
+		dir += "/"
 	var names := ["sunprobe_off_-30.0.png","sunprobe_off_-20.0.png","sunprobe_off_-15.0.png","sunprobe_off_-10.0.png","sunprobe_off_-05.0.png","sunprobe_off_+00.0.png","sunprobe_off_+05.0.png","sunprobe_off_+10.0.png","sunprobe_off_+30.0.png"]
 	var chars := " .:-=+*#%@"
 	for nm in names:

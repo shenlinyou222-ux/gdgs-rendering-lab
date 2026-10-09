@@ -2,7 +2,10 @@
 # v7.10: EVA 音量 / 核心暴露播报 / 查询类不应答 / 任务播报文案
 import io
 
-COMBAT = r"C:\Users\user\Desktop\ds harness\experiment\gdgs_lab" + "/solar_combat.gd"
+import os
+
+# 仓库根目录（本脚本位于 tools/ 下，故取其上一级）
+COMBAT = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "solar_combat.gd")
 NL = chr(10)
 T = chr(9)
 

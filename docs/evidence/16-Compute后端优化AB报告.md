@@ -161,7 +161,7 @@ opt/compute_lean_clear=false        ; O6 精简直方图清零
 **复现：**
 
 ```powershell
-cd "C:\Users\user\Desktop\ds harness\experiment\gdgs_bench"
+cd <gdgs_bench 基准工程目录>
 python ab_compute.py --scene fleet --configs base,prune,reuse,budget,clear,all,raster --reps 2
 python ab_compute.py --scene whale --configs base,prune,reuse,budget,all,raster --reps 2
 python compare.py --a runs/fleet_base --b runs/fleet_all --out reports/cmp_fleet_base_all.md

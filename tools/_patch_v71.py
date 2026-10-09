@@ -2,7 +2,10 @@
 # v7.1 patch: 通关判定/虫洞/无敌/BOSS/升级系统
 import re, io, sys
 
-BASE = r"C:\Users\user\Desktop\ds harness\experiment\gdgs_lab"
+import os
+
+# 仓库根目录（本脚本位于 tools/ 下，故取其上一级）
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COMBAT = BASE + r"\solar_combat.gd"
 PROPS = BASE + r"\solar_props.gd"
 BAL = BASE + r"\data\balance.txt"

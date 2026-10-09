@@ -2,7 +2,10 @@
 # v7.8: BOSS 渐次现身(分摊 GPU 上传) + 帧率骤降监控 + BOSS 资源预解析
 import io
 
-BASE = r"C:\Users\user\Desktop\ds harness\experiment\gdgs_lab"
+import os
+
+# 仓库根目录（本脚本位于 tools/ 下，故取其上一级）
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COMBAT = BASE + "/solar_combat.gd"
 PROPS = BASE + "/solar_props.gd"
 NL = chr(10)

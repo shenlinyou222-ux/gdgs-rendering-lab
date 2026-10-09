@@ -2,7 +2,10 @@
 # v7.3: 取消回血 / 雷达阵承伤 / 弹体炮 / 激光增强 (literal-string version)
 import io, re, sys
 
-BASE = r"C:\Users\user\Desktop\ds harness\experiment\gdgs_lab"
+import os
+
+# 仓库根目录（本脚本位于 tools/ 下，故取其上一级）
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COMBAT = BASE + r"\solar_combat.gd"
 BAL = BASE + r"\data\balance.txt"
 BS = chr(92)

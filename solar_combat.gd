@@ -4164,7 +4164,12 @@ var _eva_lines := {}
 
 func _eva_lib() -> Dictionary:
 	if _eva_lines.is_empty():
-		var path := OS.get_environment("USERPROFILE") + "/Desktop/ds harness/aigc_demo_framework/eva_broadcasts.json"
+		# 台词库由配套项目 aigc-game-framework 提供（本仓库不内置该文件）：
+		# 用环境变量 EVA_BROADCASTS 指向它，或把文件放到 <项目>/data/eva_broadcasts.json。
+		# 取不到时 FileAccess.open 返回 null，下面走 push_warning + 内置 fallback 文案。
+		var path := OS.get_environment("EVA_BROADCASTS")
+		if path == "":
+			path = "res://data/eva_broadcasts.json"
 		var f := FileAccess.open(path, FileAccess.READ)
 		if f != null:
 			var parser := JSON.new()

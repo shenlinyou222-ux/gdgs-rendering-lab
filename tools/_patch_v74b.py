@@ -2,7 +2,10 @@
 # v7.4 line-based patch (no regex)
 import io
 
-BASE = r"C:\Users\user\Desktop\ds harness\experiment\gdgs_lab"
+import os
+
+# 仓库根目录（本脚本位于 tools/ 下，故取其上一级）
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COMBAT = BASE + "\solar_combat.gd"
 BAL = BASE + "/data/balance.txt"
 NL = chr(10)

@@ -2,7 +2,10 @@
 # v7.7: radar spin off / whale-song-first finale / BGM louder / L1 guidance / EVA ack panel
 import io
 
-BASE = r"C:\Users\user\Desktop\ds harness\experiment\gdgs_lab"
+import os
+
+# 仓库根目录（本脚本位于 tools/ 下，故取其上一级）
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COMBAT = BASE + "/solar_combat.gd"
 PROPS = BASE + "/solar_props.gd"
 NL = chr(10)
